@@ -6,13 +6,11 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-//Importar conexion mongoDB;
 require("./connection");
-//Importanción del archivo de rutas y modelo
-/* const productRoute = require("./routes/products"); */
 
-//middleware
-/* app.use("/api/products", productRoute); */
+const ofertRoute = require("./routes/ofert");
+
+app.use("/api/oferts", ofertRoute);
 
 app.use((error, req, res, next) => {
   console.log("Error name: ", error.name);
